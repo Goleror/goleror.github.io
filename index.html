@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Catalog</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f3f3f3; margin: 0; }
+        .catalog { display: flex; flex-wrap: wrap; justify-content: center; }
+        .item { border: 1px solid #ddd; border-radius: 10px; padding: 10px; margin: 10px; width: 180px; text-align: center; background: #fff; }
+        .item img { width: 100%; border-radius: 10px; }
+        .item h3 { font-size: 1.2em; color: #333; }
+        .item button { padding: 8px 12px; background-color: #f50057; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="catalog">
+        <div class="item">
+            <img src="flower1.jpg" alt="Bouquet Tsunami">
+            <h3>Bouquet "Tsunami"</h3>
+            <p>$4.00</p>
+            <button onclick="addToCart('Bouquet Tsunami', 4.00)">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="flower2.jpg" alt="Composition Gwendoline">
+            <h3>Composition "Gwendoline"</h3>
+            <p>$5.00</p>
+            <button onclick="addToCart('Composition Gwendoline', 5.00)">Add to Cart</button>
+        </div>
+        <!-- Добавьте другие товары -->
+    </div>
+</body>
+<script>
+    function addToCart(name, price) {
+        Telegram.WebApp.sendData(JSON.stringify({ item: name, price: price }));
+    }
+</script>
+</html>
